@@ -22,6 +22,21 @@ describe("Baseball API Server", () =>{
             const res = await chai.request(app).get(`/api/baseball/players/Ohtani`);
             expect(res).to.have.status(200);
         });
+        it("ファミリーネームを指定して該当する選手データを返す(レスポンス確認)",async () => {
+            // Setup
+            // DBに確認用データを登録
+            const expected = {};
+
+            // Exercise
+            const res = await chai.request(app).get(`/api/baseball/players/Ohtani`);
+
+            // Assert
+            expect(res.body).to.deep.equal(expected);
+
+            // Teardown
+            // 登録した確認用データを削除
+
+        });
     });
 
 });
