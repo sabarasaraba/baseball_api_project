@@ -3,7 +3,6 @@ const { expect } = require("chai");
 const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
 const { setupServer } = require("../src/server");
-const _ = require("lodash");
 
 describe("Baseball API Server", () =>{
     let request;
