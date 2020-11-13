@@ -5,11 +5,27 @@
   "repository": "https://github.com/sabarasaraba/baseball_api_project.git",
   "author": "Naoto Kagimoto <kagimotonaoto@gmail.com>",
   "license": "CC BY-SA",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js",
+    "lint": "eslint --fix --ext .js .",
+    "test": "mocha test && yarn lint"
+  },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "express": "^4.17.1",
+    "typeorm": "^0.2.29"
+  },
+  "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
-    "express": "^4.17.1",
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-problems": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "mocha": "^8.2.1",
-    "typeorm": "^0.2.29"
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0"
   }
 }
