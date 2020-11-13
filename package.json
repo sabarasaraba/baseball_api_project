@@ -7,9 +7,11 @@
   "license": "CC BY-SA",
   "scripts": {
     "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js",
+    "dev": "node --inspect -r ts-node/register -r dotenv/config src/index.ts",
     "lint": "eslint --fix --ext .js .",
-    "test": "mocha --inspect -r ts-node/register -r dotenv/config src/tests/index.ts"
+    "test": "mocha --inspect -r ts-node/register -r dotenv/config src/tests/index.ts",
+    "orm": "ts-node -r dotenv/config ./node_modules/typeorm/cli.js --config src/ormconfig.ts",
+    "makeMigrations": "yarn orm migration:generate"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.7.0",
