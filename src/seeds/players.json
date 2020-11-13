@@ -1,0 +1,28 @@
+[
+    {
+        "playerID":"ohtansh01",
+        "birthYear":"1994",
+        "birthMonth":"7",
+        "birthDay":"5",
+        "birthCountry":"Japan",
+        "birthState":"Iwate",
+        "birthCity":"Oshu",
+        "deathYear":"",
+        "deathMonth":"",
+        "deathDay":"",
+        "deathCountry":"",
+        "deathState":"",
+        "deathCity":"",
+        "nameFirst":"Shohei",
+        "nameLast":"Ohtani",
+        "nameGiven":"Shohei",
+        "weight":"210",
+        "height":"76",
+        "bats":"L",
+        "throws":"R",
+        "debut":"2018/3/29",
+        "finalGame":"2020/9/27",
+        "retroID":"ohtas001",
+        "bbrefID":"ohtansh01"
+    }
+]
