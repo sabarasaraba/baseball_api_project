@@ -30,7 +30,7 @@ describe("Baseball API Server", () =>{
             // Setup
             // DBに確認用データを登録
             const expected = {
-                // playerID:"ohtansh01",
+                playerID:null,
                 birthYear:1994,
                 birthMonth:7,
                 birthDay:5,
@@ -50,15 +50,14 @@ describe("Baseball API Server", () =>{
                 height:76,
                 bats:"L",
                 throws:"R",
-                debut:"2018/3/29",
-                finalGame:"2020/9/27",
+                debut:null,
+                finalGame:null,
                 retroID:"ohtas001",
                 bbrefID:"ohtansh01"
             };
 
             // DBに直接データをInsert
             let ohtani = new Player();
-            // ohtani.playerID = expected.playerID
             ohtani.birthYear = expected.birthYear
             ohtani.birthMonth = expected.birthMonth
             ohtani.birthDay = expected.birthDay
@@ -78,18 +77,19 @@ describe("Baseball API Server", () =>{
             ohtani.height = expected.height
             ohtani.bats = expected.bats
             ohtani.throws = expected.throws
-            // ohtani.debut = expected.debut
-            // ohtani.finalGame = expected.finalGame
+            ohtani.debut = expected.debut
+            ohtani.finalGame = expected.finalGame
             ohtani.retroID = expected.retroID
             ohtani.bbrefID = expected.bbrefID
 
             ohtani = await playerRepo.save(ohtani);
             
-
             // Exercise
             const res = await chai.request(app).get(`/api/baseball/players/Ohtani`);
 
             // Assert
+            // playerIdはレスポンスで初めてわかるので、expectedに追加
+            expected.playerID = res.body.playerID;
             expect(res.body).to.deep.equal(expected);
 
             // Teardown
