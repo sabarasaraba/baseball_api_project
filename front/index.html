@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>Baseball Players</title>
+    </head>
+    <body>
+        <input type="text" class="familyName">
+        <input type="button" value="search" class="search">
+        <div class="result">
+        </div>
+
+        <script>
+            const searchButton = document.querySelector('.search');
+            const searchWord = document.querySelector('.familyName');
+            
+            const result = document.querySelector('.result');
+            
+
+            async function request() {
+                const url = "http://localhost:9000/api/baseball/players/" + searchWord.value;
+                const response = await fetch(url);
+                const jsonResponse = await response.json();
+
+                const html = `
+                        <div class="playerID">Player ID:${jsonResponse.playerID}</div>
+                        <div class="nameFirst">First Name:${jsonResponse.nameFirst}</div>
+                        <div class="nameLast">First Name:${jsonResponse.nameLast}</div>
+                        <div class="birthYear">Birth Year:${jsonResponse.birthYear}</div>
+                        
+                `
+                result.innerHTML=html;
+            }
+            request();
+            
+            
+            searchButton.addEventListener('click', request);
+        </script>
+    </body>
+</html>
